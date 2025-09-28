@@ -28,6 +28,11 @@ body.admin-bar {
     background-size: auto 100%;
     font-family: 'SouvenirMonoEF', sans-serif;
 }
+.menu-bg {
+    background-image: url(/menu/wp-content/themes/masa-sobre-mesa/assets/img/bg-msm.png);
+    background-position-x: right;
+    background-size: auto 100%;
+}
 .blob-bg {
     background-image: url(/menu/wp-content/themes/masa-sobre-mesa/assets/img/blob.svg);
     background-size: contain;
@@ -36,4 +41,9 @@ body.admin-bar {
     background-repeat: no-repeat;
     margin-left: 12%;
     margin-right: 12%;
+}
+.pink-blob-bg {
+    background-image: url(/menu/wp-content/themes/masa-sobre-mesa/assets/img/pink-blob.svg);
+    background-size: 100% auto;
+    background-position: top center;
 }

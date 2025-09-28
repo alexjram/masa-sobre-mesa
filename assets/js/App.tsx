@@ -23,9 +23,9 @@ export default function App({types}: Props) {
         }
     }
     if (!item) {
-        return <Menu onChange={handleSelection} types={types.map(type => type.name)} />
+        return <Menu onChange={handleSelection} types={types.map(type => type.name)} visible={true} />
     }
     return (
-        <MenuItems foods={item.foods} name={item.name} />
+        <MenuItems foods={item.foods} name={item.name} onChange={handleSelection} types={types.map(type => type.name)} />
     )
 }
