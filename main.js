@@ -5,7 +5,7 @@
 import "./assets/css/styles.css"
 
 // get scripts
-import './assets/js/scripts.js'
+import './assets/js/scripts'
 
 /*
 document.querySelector('#app').innerHTML = `

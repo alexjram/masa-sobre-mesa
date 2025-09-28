@@ -21,3 +21,19 @@
 body.admin-bar {
     max-height: calc(100vh - 32px);
 }
+
+#main-container {
+    background-image: url(/menu/wp-content/themes/masa-sobre-mesa/assets/img/bg-msm.png);
+    background-position-x: right;
+    background-size: auto 100%;
+    font-family: 'SouvenirMonoEF', sans-serif;
+}
+.blob-bg {
+    background-image: url(/menu/wp-content/themes/masa-sobre-mesa/assets/img/blob.svg);
+    background-size: contain;
+    background-position: center;
+    aspect-ratio: 17/10;
+    background-repeat: no-repeat;
+    margin-left: 12%;
+    margin-right: 12%;
+}

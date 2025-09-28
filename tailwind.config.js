@@ -4,7 +4,8 @@ module.exports = {
     './*.php',
     './inc/**/*.php',
     './templates/**/*.php',
-    './safelist.txt'
+    './safelist.txt',
+    './assets/js/**/*.{tsx,jsx}'
     //'./**/*.php', // recursive search for *.php (be aware on every file change it will go even through /node_modules which can be slow, read doc)
   ],
   safelist: [

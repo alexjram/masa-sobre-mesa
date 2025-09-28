@@ -15,3 +15,44 @@ define('IS_VITE_DEVELOPMENT', true);
 include "inc/inc.vite.php";
 
 
+function addTypes() {
+    $query = new WP_Query([
+        'post-type' => 'food'
+    ]);
+    $terms = get_terms([
+        'taxonomy' =>'food-type',
+        'hide_empty' => false
+    ]);
+
+    $termsArray = [];
+    foreach($terms as $term) {
+        $query = new WP_Query([
+            'post_type' => 'food',
+            'tax_query' => [
+                [
+                    'taxonomy' => 'food-type',
+                    'terms' => $term->term_id
+                ]
+            ]
+        ]);
+        $foods = $query->get_posts();
+
+        $termsArray[] = [
+            'name' => $term->name,
+            'id' => $term->term_id,
+            'foods' => array_map(fn(WP_Post $food) => [
+                'name' => $food->post_name, 
+                'desc' => wp_strip_all_tags($food->post_content),
+                'image' => get_the_post_thumbnail_url($food)
+            ], $foods),
+        ];
+    }
+
+    ?>
+    <script>
+        var globalTerms = JSON.parse('<?= json_encode($termsArray) ?>')
+    </script>
+    <?php
+}
+
+add_action('wp_head', 'addTypes');
