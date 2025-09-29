@@ -28,8 +28,7 @@ define('VITE_ENTRY_POINT', '/main.js');
 // enqueue hook
 add_action( 'wp_enqueue_scripts', function() {
     
-    if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true) {
-
+if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true ) {
         // insert hmr into head for live reload
         function vite_head_module_hook() {
             echo '<script type="module" crossorigin src="' . VITE_SERVER . VITE_ENTRY_POINT . '"></script>';
@@ -42,22 +41,25 @@ add_action( 'wp_enqueue_scripts', function() {
         // ----------
 
         // read manifest.json to figure out what to enqueue
-        $manifest = json_decode( file_get_contents( DIST_PATH . '/manifest.json'), true );
-        
+        $manifest = json_decode( file_get_contents( DIST_PATH . '/.vite/manifest.json'), true );
+        if (!is_array($manifest)){
+		var_dump($manifest);
+	        echo DIST_PATH . '/.vite/manifest.json';
+	}	
         // is ok
-        if (is_array($manifest)) {
+	if (is_array($manifest)) {
             
             // get first key, by default is 'main.js' but it can change
             $manifest_key = array_keys($manifest);
             if (isset($manifest_key[0])) {
                 
                 // enqueue CSS files
-                foreach(@$manifest[$manifest_key[0]]['css'] as $css_file) {
+                foreach(@$manifest['main.js']['css'] as $css_file) {
                     wp_enqueue_style( 'main', DIST_URI . '/' . $css_file );
                 }
                 
                 // enqueue main JS file
-                $js_file = @$manifest[$manifest_key[0]]['file'];
+                $js_file = @$manifest['main.js']['file'];
                 if ( ! empty($js_file)) {
                     wp_enqueue_script( 'main', DIST_URI . '/' . $js_file, JS_DEPENDENCY, '', JS_LOAD_IN_FOOTER );
                 }

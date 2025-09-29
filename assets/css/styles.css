@@ -23,18 +23,18 @@ body.admin-bar {
 }
 
 #main-container {
-    background-image: url(../img/bg-msm.png);
+    background-image: url(/wp-content/themes/masa-sobre-mesa/assets/img/bg-msm.png);
     background-position-x: right;
     background-size: auto 100%;
     font-family: 'SouvenirMonoEF', sans-serif;
 }
 .menu-bg {
-    background-image: url(../img/bg-msm.png);
+    background-image: url(/wp-content/themes/masa-sobre-mesa/assets/img/bg-msm.png);
     background-position-x: right;
     background-size: auto 100%;
 }
 .blob-bg {
-    background-image: url(../img/blob.svg);
+    background-image: url(/wp-content/themes/masa-sobre-mesa/assets/img/blob.svg);
     background-size: contain;
     background-position: center;
     aspect-ratio: 17/10;
@@ -43,7 +43,7 @@ body.admin-bar {
     margin-right: 12%;
 }
 .pink-blob-bg {
-    background-image: url(../img/pink-blob.svg);
+    background-image: url(/wp-content/themes/masa-sobre-mesa/assets/img/pink-blob.svg);
     background-size: 100% auto;
     background-position: top center;
 }

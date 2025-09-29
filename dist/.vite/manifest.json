@@ -1,28 +1,11 @@
 {
-  "assets/img/bg-msm.png": {
-    "file": "assets/bg-msm-C9odJDDN.png",
-    "src": "assets/img/bg-msm.png"
-  },
-  "assets/img/blob.svg": {
-    "file": "assets/blob-BkGAjsRV.svg",
-    "src": "assets/img/blob.svg"
-  },
-  "assets/img/pink-blob.svg": {
-    "file": "assets/pink-blob-BIEyplyF.svg",
-    "src": "assets/img/pink-blob.svg"
-  },
   "main.js": {
-    "file": "assets/main-Dbw3o5Y-.js",
+    "file": "assets/main-CET7qtxT.js",
     "name": "main",
     "src": "main.js",
     "isEntry": true,
     "css": [
-      "assets/main-D4Igdd3P.css"
-    ],
-    "assets": [
-      "assets/bg-msm-C9odJDDN.png",
-      "assets/blob-BkGAjsRV.svg",
-      "assets/pink-blob-BIEyplyF.svg"
+      "assets/main-DAlhTsfv.css"
     ]
   }
 }
