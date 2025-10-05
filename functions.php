@@ -41,7 +41,7 @@ function addTypes() {
             'name' => $term->name,
             'id' => $term->term_id,
             'foods' => array_map(fn(WP_Post $food) => [
-                'name' => $food->post_name, 
+                'name' => $food->post_title, 
                 'desc' => wp_strip_all_tags($food->post_content),
                 'image' => get_the_post_thumbnail_url($food)
             ], $foods),
