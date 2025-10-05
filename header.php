@@ -26,13 +26,13 @@
     <?php wp_body_open(); ?>
 
     <header class="flex-0 bg-white px-4 border">
-        <div class="max-w-screen-lg mx-auto flex justify-center items-center min-h-[40px]">
-            <div class="w-[70%] py-[12%]">
+        <div class="max-w-screen-lg mx-auto md:mx-[63px] flex justify-center md:justify-between items-center min-h-[40px]">
+            <div class="w-[70%] md:w-[346px] py-[12%] md:py-3">
                 <img src="<?= get_template_directory_uri().'/assets/img/logo.svg' ?>" alt="masa sobre mesa" />
             </div>
-            <!--<div>
+		<div class="hidden md:flex" id="main-menu">
                 <?php /*echo wp_nav_menu()*/ ?>
-            </div>-->
+            </div>
         </div>
     </header>
 
