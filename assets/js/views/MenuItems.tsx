@@ -67,15 +67,15 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 						{foods.map((food, index) => (
 							<li key={index} className="relative overflow-hidden group/food md:h-full md:flex-shrink-0 md:aspect-square">
 								<img src={food.image} alt={food.name} className="aspect-square object-cover group-hover/food:scale-150 ease-in-out duration-300" />
-								<div className="absolute w-full bottom-0 pink-blob-bg px-3 py-3 -translate-x-1/3 md:translate-x-0 group-hover/food:translate-x-0 ease-in-out duration-300">
-									<h3 className="text-center uppercase md:text-xl">{food.name}</h3>
-									<p className="text-center max-h-0 overflow-hidden group-hover/food:max-h-80 group-hover/food:mt-1 ease-in-out duration-200 px-5 md:px-[12%] whitespace-normal text-[13px]">{food.desc}</p>
+								<div className="absolute w-full bottom-0 pink-blob-bg px-3 pt-6 group-hover/food:py-7 pb-3 -translate-x-1/4 md:translate-x-0 group-hover/food:translate-x-0 ease-in-out duration-300">
+									<h3 className="text-center uppercase md:text-xl mx-auto w-[45%] whitespace-normal">{food.name}</h3>
+									<p className="text-center max-h-0 overflow-hidden group-hover/food:max-h-80 group-hover/food:mt-1 ease-in-out duration-200 px-5 group-hover/food:mt-5 md:px-[12%] whitespace-normal text-[13px]">{food.desc}</p>
 								</div>
 							</li>
 						))}
 					</ul>
 					<div className={`absolute w-full h-full bottom-0 top-0 ${showMenu ? 'z-auto' : '-z-10'}`}>
-						<Menu types={types} onChange={handleMenuChange} visible={showMenu} />
+						<Menu types={types} onChange={handleMenuChange} visible={showMenu} isInternal={true} />
 					</div>
 				</Scrollable>
 
