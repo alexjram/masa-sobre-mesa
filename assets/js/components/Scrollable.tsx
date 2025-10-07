@@ -8,7 +8,7 @@ interface Props {
 }
 export default function Scrollable({ children, showMenu, ref }: Props) {
 
-	const isMobile = useIsMobile()
+	const isMobile = useIsMobile(1024)
 
 	const handleScroll = (event: React.WheelEvent) => {
 		if (!isMobile) {

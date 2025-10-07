@@ -4,14 +4,12 @@ import Menu from './Menu'
 import Scrollable from '../components/Scrollable'
 import LeftArrow from '../components/LeftArrow'
 import RightArrow from '../components/RightArrow'
+import Food from '../components/Food'
+import type { Food as FoodType } from '../App'
 
 interface Props {
 	name: string
-	foods: {
-		name: string
-		desc: string
-		image?: string
-	}[]
+	foods: FoodType[]
 	onChange: (type: string) => void
 	types: string[]
 }
@@ -44,15 +42,15 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 	return (
 		<div className="w-full h-full relative">
 			<div className="absolute top-0 left-0 w-full h-full flex flex-col justify-stretch">
-				<button className='absolute left-4 top-1/2 translate-y-[-50%] z-10 hidden md:block' onClick={handleLeftButton}>
+				<button className='absolute left-4 top-1/2 translate-y-[-50%] z-10 hidden lg:block' onClick={handleLeftButton}>
 					<LeftArrow />
 				</button>
-				<button className='absolute right-4 top-1/2 translate-y-[-50%] z-10 hidden md:block' onClick={handleRightButton}>
+				<button className='absolute right-4 top-1/2 translate-y-[-50%] z-10 hidden lg:block' onClick={handleRightButton}>
 					<RightArrow />
 				</button>
 
 
-				<div className="flex-shrink-0 flex-grow-0 bg-white py-2 md:hidden">
+				<div className="flex-shrink-0 flex-grow-0 bg-white py-2 lg::hidden">
 					{!showMenu ? (<h2 className="text-center text-2xl flex justify-center">
 						<span className="mr-3">{name}</span>
 						{' '}<MenuIcon onPress={handleOpenMenu} />
@@ -63,15 +61,9 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 					)}
 				</div>
 				<Scrollable showMenu={showMenu} ref={contentRef}>
-					<ul className="flex flex-col md:flex-row md:h-full whitespace-nowrap">
+					<ul className="flex flex-col lg:flex-row lg:h-full whitespace-nowrap">
 						{foods.map((food, index) => (
-							<li key={index} className="relative overflow-hidden group/food md:h-full md:flex-shrink-0 md:aspect-square">
-								<img src={food.image} alt={food.name} className="aspect-square object-cover group-hover/food:scale-150 ease-in-out duration-300" />
-								<div className="absolute w-full bottom-0 pink-blob-bg px-3 pt-6 group-hover/food:py-7 pb-3 -translate-x-1/4 md:translate-x-0 group-hover/food:translate-x-0 ease-in-out duration-300">
-									<h3 className="text-center uppercase md:text-xl mx-auto w-[45%] whitespace-normal">{food.name}</h3>
-									<p className="text-center max-h-0 overflow-hidden group-hover/food:max-h-80 group-hover/food:mt-1 ease-in-out duration-200 px-5 group-hover/food:mt-5 md:px-[12%] whitespace-normal text-[13px]">{food.desc}</p>
-								</div>
-							</li>
+							<Food food={food} key={index} />
 						))}
 					</ul>
 					<div className={`absolute w-full h-full bottom-0 top-0 ${showMenu ? 'z-auto' : '-z-10'}`}>

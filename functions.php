@@ -43,7 +43,8 @@ function addTypes() {
             'foods' => array_map(fn(WP_Post $food) => [
                 'name' => $food->post_title, 
                 'desc' => wp_strip_all_tags($food->post_content),
-                'image' => get_the_post_thumbnail_url($food)
+				'image' => get_the_post_thumbnail_url($food),
+				'image2' => ''
             ], $foods),
         ];
     }

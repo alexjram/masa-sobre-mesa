@@ -5,14 +5,16 @@ import MenuItems from './views/MenuItems'
 interface Type {
 	name: string
 	id: number
-	foods: {
-		name: string
-		desc: string
-		image: string
-	}[]
+	foods: Food[]
 }
 interface Props {
 	types: Type[]
+}
+export interface Food {
+	name: string
+	desc: string
+	image: string
+	image2: string
 }
 export default function App({ types }: Props) {
 	const [item, setItem] = React.useState<Type | undefined>(undefined)
