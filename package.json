@@ -19,6 +19,7 @@
     "vite-plugin-live-reload": "^3.0"
   },
   "dependencies": {
+    "embla-carousel-react": "^8.6.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   }
