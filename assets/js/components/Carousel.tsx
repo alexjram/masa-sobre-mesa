@@ -31,8 +31,8 @@ export default function Carousel({ foods }: Props) {
 				<RightArrow />
 			</button>
 
-			<div className='overflow-hidden' ref={emblaRef}>
-				<div className='flex'>
+			<div className='overflow-hidden h-full' ref={emblaRef}>
+				<div className='flex h-full'>
 					{foods.map((f, i) => (<Food food={f} key={i} />))}
 				</div>
 			</div>
