@@ -23,7 +23,6 @@ export default function App({ types }: Props) {
 		const mainMenu = document.getElementById('main-menu') as HTMLDivElement
 		if (mainMenu) {
 			mainMenu.innerHTML = ''
-			mainMenu.classList.add('hidden')
 			types.forEach(type => {
 				const node = document.createElement('a')
 				node.href = '#'
@@ -45,6 +44,7 @@ export default function App({ types }: Props) {
 			setItem(foodType)
 			const mainMenu = document.getElementById('main-menu')
 			mainMenu?.classList.remove('hidden')
+			mainMenu?.classList.add('lg:flex')
 			const mainMenuItems = document.querySelectorAll<HTMLAnchorElement>('#main-menu > a')
 			mainMenuItems.forEach(mmItem => {
 				if (mmItem.textContent === name) {
