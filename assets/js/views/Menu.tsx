@@ -16,7 +16,7 @@ export default function Menu({ onChange, types, visible, isInternal }: Props) {
 			<div className="flex flex-col flex-grow flex-shrink lg:flex-row items-stretch lg:items-center h-full justify-around opacity-100 ease-in-out duration-300 menu-bg w-full lg:w-screen">
 				{types.map((type, index) => (
 					<div key={index} className="blob-bg flex items-center justify-center mx-[15%] p-0 lg:mx-0 lg:px-[5%] max-w-full box-border max-h-[160px] lg:max-h-none" onClick={() => onChange(type)}>
-						<h3 className="text-2xl lg:text-4xl font-bold">{type}</h3>
+						<h3 className="text-2xl lg:text-5xl font-bold">{type}</h3>
 					</div>
 				))}
 			</div>
