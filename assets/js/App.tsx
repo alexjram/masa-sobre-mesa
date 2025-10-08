@@ -15,6 +15,7 @@ export interface Food {
 	desc: string
 	image: string
 	image2: string
+	id: number
 }
 export default function App({ types }: Props) {
 	const [item, setItem] = React.useState<Type | undefined>(undefined)

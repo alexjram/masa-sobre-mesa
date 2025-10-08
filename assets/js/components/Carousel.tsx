@@ -34,7 +34,7 @@ export default function Carousel({ foods }: Props) {
 
 			<div className='overflow-hidden h-full' ref={emblaRef}>
 				<div className='flex h-full'>
-					{foods.map((f, i) => (<Food food={f} key={i} />))}
+					{foods.map((f) => (<Food food={f} key={f.id} />))}
 				</div>
 			</div>
 		</div>

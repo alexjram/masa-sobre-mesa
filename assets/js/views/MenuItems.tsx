@@ -46,8 +46,8 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 				{isMobile ? (
 					<Scrollable showMenu={showMenu} ref={contentRef}>
 						<ul className="flex flex-col lg:flex-row lg:h-full whitespace-nowrap">
-							{foods.map((food, index) => (
-								<Food food={food} key={index} />
+							{foods.map((food) => (
+								<Food food={food} key={food.id} />
 							))}
 						</ul>
 						<div className={`absolute w-full h-full bottom-0 top-0 ${showMenu ? 'z-auto' : '-z-10'}`}>
