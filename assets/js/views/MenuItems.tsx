@@ -33,7 +33,7 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 	return (
 		<div className="w-full h-full relative">
 			<div className="absolute top-0 left-0 w-full h-full flex flex-col justify-stretch">
-				<div className="flex-shrink-0 flex-grow-0 bg-white py-2 lg::hidden">
+				<div className="flex-shrink-0 flex-grow-0 bg-white py-2 lg:hidden">
 					{!showMenu ? (<h2 className="text-center text-2xl flex justify-center">
 						<span className="mr-3">{name}</span>
 						{' '}<MenuIcon onPress={handleOpenMenu} />

@@ -12,7 +12,8 @@ interface Props {
 export default function Carousel({ foods }: Props) {
 	const [emblaRef, emblaApi] = useEmblaCarousel({
 		align: 'start',
-		loop: true
+		loop: true,
+
 	})
 
 	const handleLeftButton = () => {
