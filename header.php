@@ -26,7 +26,7 @@
     <?php wp_body_open(); ?>
 
     <header class="flex-0 bg-white px-4 border">
-        <div class="max-w-screen-lg mx-auto lg:mx-[63px] flex justify-center lg:justify-between items-center min-h-[40px] w-full">
+        <div class="max-w-screen-lg mx-auto lg:mx-[63px] flex justify-center items-center min-h-[40px] w-full">
             <div class="w-[70%] lg:w-[346px] py-[12%] lg:py-10">
                 <img src="<?= get_template_directory_uri().'/assets/img/logo.svg' ?>" alt="masa sobre mesa" />
             </div>
