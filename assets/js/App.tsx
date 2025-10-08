@@ -26,6 +26,7 @@ export default function App({ types }: Props) {
 			mainMenu.classList.add('absolute')
 			mainMenu.classList.add('w-0')
 			mainMenu.classList.add('top-0')
+			mainMenu.classList.add('overflow-hidden')
 			types.forEach(type => {
 				const node = document.createElement('a')
 				node.href = '#'
@@ -49,6 +50,7 @@ export default function App({ types }: Props) {
 			mainMenu?.classList.remove('w-0')
 			mainMenu?.classList.remove('absolute')
 			mainMenu?.classList.remove('top-0')
+			mainMenu?.classList.remove('overflow-hidden')
 			mainMenu?.parentElement?.classList.add('lg:justify-between')
 			const mainMenuItems = document.querySelectorAll<HTMLAnchorElement>('#main-menu > a')
 			mainMenuItems.forEach(mmItem => {
