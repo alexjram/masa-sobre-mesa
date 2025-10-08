@@ -44,7 +44,7 @@ function addTypes() {
                 'name' => $food->post_title, 
                 'desc' => wp_strip_all_tags($food->post_content),
 				'image' => get_the_post_thumbnail_url($food),
-				'image2' => get_field('image2', $food)
+				'image2' => get_field('image2', $food->ID)
             ], $foods),
         ];
     }
