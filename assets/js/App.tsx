@@ -49,6 +49,7 @@ export default function App({ types }: Props) {
 			mainMenu?.classList.remove('w-0')
 			mainMenu?.classList.remove('absolute')
 			mainMenu?.classList.remove('top-0')
+			mainMenu?.parentElement?.classList.add('lg:justify-between')
 			const mainMenuItems = document.querySelectorAll<HTMLAnchorElement>('#main-menu > a')
 			mainMenuItems.forEach(mmItem => {
 				if (mmItem.textContent === name) {
