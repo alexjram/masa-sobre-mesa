@@ -23,6 +23,9 @@ export default function App({ types }: Props) {
 		const mainMenu = document.getElementById('main-menu') as HTMLDivElement
 		if (mainMenu) {
 			mainMenu.innerHTML = ''
+			mainMenu.classList.add('absolute')
+			mainMenu.classList.add('w-0')
+			mainMenu.classList.add('top-0')
 			types.forEach(type => {
 				const node = document.createElement('a')
 				node.href = '#'
@@ -43,8 +46,9 @@ export default function App({ types }: Props) {
 		if (foodType) {
 			setItem(foodType)
 			const mainMenu = document.getElementById('main-menu')
-			mainMenu?.classList.remove('hidden')
-			mainMenu?.classList.add('lg:flex')
+			mainMenu?.classList.remove('w-0')
+			mainMenu?.classList.remove('absolute')
+			mainMenu?.classList.remove('top-0')
 			const mainMenuItems = document.querySelectorAll<HTMLAnchorElement>('#main-menu > a')
 			mainMenuItems.forEach(mmItem => {
 				if (mmItem.textContent === name) {
