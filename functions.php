@@ -16,17 +16,12 @@ include "inc/inc.vite.php";
 
 
 function addTypes() {
-	$lang = $_GET['lang'] ?? 'es';
-	if (!in_array($lang, pll_get_the_languages(['raw' => true]))) {
-		$lang = 'es';
-	}
     $query = new WP_Query([
         'post-type' => 'food'
     ]);
     $terms = get_terms([
         'taxonomy' =>'food-type',
 		'hide_empty' => false,
-		'lang' => $lang
     ]);
 
     $termsArray = [];
@@ -39,7 +34,6 @@ function addTypes() {
                     'terms' => $term->term_id
                 ]
 			],
-			'lang' => $lang,
         ]);
         $foods = $query->get_posts();
 
@@ -64,10 +58,3 @@ function addTypes() {
 }
 
 add_action('wp_head', 'addTypes');
-
-function setLangDetection() {
-	if (isset($_GET['lang']) && function_exists('pll_set_current_language')) {
-		pll_set_current_language(sanitize_text_field($_GET['lang']));
-	}
-}
-add_action('init', 'setLangDetection');
