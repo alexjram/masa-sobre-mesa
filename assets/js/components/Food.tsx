@@ -12,8 +12,8 @@ export default function Food({ food }: Props) {
 
 			<div className="absolute w-full bottom-0 px-3 pt-6 group-hover/food:py-7 pb-3 -translate-x-1/4 md:translate-x-0 group-hover/food:translate-x-0 ease-in-out duration-300">
 				<div className='pink-blob-bg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-full z-0' />
-				<h3 className="text-center uppercase lg:text-xl mx-auto w-[45%] whitespace-normal">{food.name}</h3>
-				<p className="text-center max-h-0 overflow-hidden group-hover/food:max-h-80 ease-in-out duration-200 px-5 group-hover/food:mt-5 lg:px-[12%] whitespace-normal text-[13px]">{food.desc}</p>
+				<h3 className="text-center uppercase lg:text-xl mx-auto w-[45%] whitespace-normal relative z-10">{food.name}</h3>
+				<p className="text-center max-h-0 overflow-hidden group-hover/food:max-h-80 ease-in-out duration-200 px-5 group-hover/food:mt-5 lg:px-[12%] whitespace-normal text-[13px] relative z-10">{food.desc}</p>
 			</div>
 		</li>
 	)
