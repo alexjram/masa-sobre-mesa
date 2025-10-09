@@ -58,3 +58,10 @@ function addTypes() {
 }
 
 add_action('wp_head', 'addTypes');
+
+function setLangDetection() {
+	if (isset($_GET['lang']) && function_exists('pll_set_current_language')) {
+		pll_set_current_language(sanitize_text_field($_GET['lang']));
+	}
+}
+add_action('init', 'setLangDetection');

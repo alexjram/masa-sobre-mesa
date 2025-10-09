@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Menu from './views/Menu'
 import MenuItems from './views/MenuItems'
+import { getOtherLangAnchor } from './services/language'
 
 interface Type {
 	name: string
@@ -39,7 +40,7 @@ export default function App({ types }: Props) {
 				mainMenu.appendChild(node)
 
 			})
-
+			mainMenu.appendChild(getOtherLangAnchor())
 		}
 	}, [types])
 	const handleSelection = (name: string) => {
