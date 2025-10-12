@@ -1,4 +1,7 @@
 import React from 'react'
+import { getLang, getLongName, getOtherLang, getOtherLangURL } from '../services/language'
+import BritishFlag from '../components/BritishFlag'
+import SpanishFlag from '../components/SpanishFlag'
 
 interface Props {
 	onChange: (item: string) => void
@@ -21,7 +24,15 @@ export default function Menu({ onChange, types, visible, isInternal }: Props) {
 				))}
 			</div>
 			{!isInternal && (<div className='flex-shrink-0 flex-grow-0 py-5 bg-pink-300 flex items-center justify-center'>
-				<p className='use-font'>Calle Arica 399, Miraflores</p>
+				<p className='use-font hidden lg:block'>Calle Arica 399, Miraflores</p>
+				<a href={getOtherLangURL()} className='flex lg:hidden use-font items-center'>
+					{getOtherLang().toLowerCase() === 'en' ? (
+						<BritishFlag size={30} />
+					) : (
+						<SpanishFlag size={30} />
+					)}
+					<span className='ml-4 uppercase'>{getLongName(getOtherLang())}</span>
+				</a>
 			</div>)}
 		</div>
 	)

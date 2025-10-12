@@ -37,3 +37,22 @@ export function getOtherLangAnchor() {
 
 	return anchor
 }
+
+export function getOtherLang() {
+	const actualLang = getLang()
+
+	const otherLang = languages.filter(l => l !== actualLang)
+
+	return otherLang[0] ?? 'es'
+}
+
+export function getLongName(lang: string) {
+	switch (lang.toLowerCase()) {
+		case 'en':
+			return 'English'
+		case 'es':
+			return 'Español'
+		default:
+			return 'Español'
+	}
+}

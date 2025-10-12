@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Menu from './views/Menu'
 import MenuItems from './views/MenuItems'
-import { getOtherLangAnchor } from './services/language'
+import MainMenu from './components/MainMenu'
 
 interface Type {
 	name: string
@@ -20,53 +20,22 @@ export interface Food {
 }
 export default function App({ types }: Props) {
 	const [item, setItem] = React.useState<Type | undefined>(undefined)
-	useEffect(() => {
-		const mainMenu = document.getElementById('main-menu') as HTMLDivElement
-		if (mainMenu) {
-			mainMenu.innerHTML = ''
-			mainMenu.classList.add('absolute')
-			mainMenu.classList.add('w-0')
-			mainMenu.classList.add('top-0')
-			mainMenu.classList.add('overflow-hidden')
-			types.forEach(type => {
-				const node = document.createElement('a')
-				node.href = '#'
-				node.innerText = type.name
-				node.className = 'font-bold use-font uppercase px-5'
-				node.onclick = ev => {
-					ev.preventDefault()
-					handleSelection(type.name)
-				}
-				mainMenu.appendChild(node)
-
-			})
-			mainMenu.appendChild(getOtherLangAnchor())
-		}
-	}, [types])
 	const handleSelection = (name: string) => {
 		const foodType = types.find(type => type.name === name)
 		if (foodType) {
 			setItem(foodType)
-			const mainMenu = document.getElementById('main-menu')
-			mainMenu?.classList.remove('w-0')
-			mainMenu?.classList.remove('absolute')
-			mainMenu?.classList.remove('top-0')
-			mainMenu?.classList.remove('overflow-hidden')
-			mainMenu?.parentElement?.classList.add('lg:justify-between')
-			const mainMenuItems = document.querySelectorAll<HTMLAnchorElement>('#main-menu > a')
-			mainMenuItems.forEach(mmItem => {
-				if (mmItem.textContent === name) {
-					mmItem.style.color = '#b1a979'
-				} else {
-					mmItem.style.color = '#000000'
-				}
-			})
 		}
 	}
-	if (!item) {
-		return <Menu onChange={handleSelection} types={types.map(type => type.name)} visible={true} isInternal={false} />
-	}
+	const typeNames = types.map(type => type.name)
+
 	return (
-		<MenuItems foods={item.foods} name={item.name} onChange={handleSelection} types={types.map(type => type.name)} />
+		<div className='flex flex-col h-full w-screen'>
+			<MainMenu foodTypes={typeNames} selectedType={item?.name} onSelectingType={handleSelection} />
+			{!item ? (
+				<Menu onChange={handleSelection} types={typeNames} visible={true} isInternal={false} />
+			) : (
+				<MenuItems foods={item.foods} name={item.name} onChange={handleSelection} types={typeNames} />
+			)}
+		</div>
 	)
 }
