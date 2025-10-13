@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import MenuIcon from '../components/MenuIcon'
 import Menu from './Menu'
 import Scrollable from '../components/Scrollable'
@@ -12,11 +12,25 @@ interface Props {
 	foods: FoodType[]
 	onChange: (type: string) => void
 	types: string[]
+	onScroll: (hasScrolled: boolean) => void
 }
-export default function MenuItems({ name, foods, onChange, types }: Props) {
+export default function MenuItems({ name, foods, onChange, types, onScroll }: Props) {
 	const [showMenu, setShowMenu] = useState(false)
 	const contentRef = useRef<HTMLDivElement>(null)
 	const isMobile = useIsMobile(1024)
+	useEffect(() => {
+		const scrollHandler = () => {
+			onScroll(!!contentRef && !!contentRef.current && contentRef.current.scrollTop > 0)
+		}
+		if (contentRef && contentRef.current) {
+			contentRef.current.addEventListener('scroll', scrollHandler)
+		}
+		return () => {
+			if (contentRef && contentRef.current) {
+				contentRef.current.removeEventListener('scroll', scrollHandler)
+			}
+		}
+	}, [contentRef])
 	const handleOpenMenu = () => {
 		if (contentRef.current) {
 			contentRef.current.scrollTo({ top: 0, behavior: 'instant' })
@@ -51,7 +65,7 @@ export default function MenuItems({ name, foods, onChange, types }: Props) {
 							))}
 						</ul>
 						<div className={`absolute w-full h-full bottom-0 top-0 ${showMenu ? 'z-auto' : '-z-10'}`}>
-							<Menu types={types} onChange={handleMenuChange} visible={showMenu} isInternal={true} />
+							<Menu types={types} onChange={handleMenuChange} visible={showMenu} />
 						</div>
 					</Scrollable>
 				) : (

@@ -7,9 +7,8 @@ interface Props {
 	onChange: (item: string) => void
 	types: string[],
 	visible: boolean
-	isInternal: boolean
 }
-export default function Menu({ onChange, types, visible, isInternal }: Props) {
+export default function Menu({ onChange, types, visible }: Props) {
 
 	if (!visible) {
 		return <div className="opacity-0 -z-10 ease-in-out duration-300" />
@@ -23,7 +22,7 @@ export default function Menu({ onChange, types, visible, isInternal }: Props) {
 					</div>
 				))}
 			</div>
-			{!isInternal && (<div className='flex-shrink-0 flex-grow-0 py-5 bg-pink-300 flex items-center justify-center'>
+			<div className='flex-shrink-0 flex-grow-0 py-5 bg-pink-300 flex items-center justify-center'>
 				<p className='use-font hidden lg:block'>Calle Arica 399, Miraflores</p>
 				<a href={getOtherLangURL()} className='flex lg:hidden use-font items-center'>
 					{getOtherLang().toLowerCase() === 'en' ? (
@@ -33,7 +32,7 @@ export default function Menu({ onChange, types, visible, isInternal }: Props) {
 					)}
 					<span className='ml-4 uppercase'>{getLongName(getOtherLang())}</span>
 				</a>
-			</div>)}
+			</div>
 		</div>
 	)
 }
