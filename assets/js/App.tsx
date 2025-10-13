@@ -31,7 +31,7 @@ export default function App({ types }: Props) {
 
 	return (
 		<div className='flex flex-col h-full w-screen'>
-			<MainMenu foodTypes={typeNames} selectedType={item?.name} onSelectingType={handleSelection} shouldDecreaseSize={hasScrolled} />
+			<MainMenu foodTypes={typeNames} selectedType={item?.name} onSelectingType={handleSelection} shouldDecreaseSize={true} />
 			{!item ? (
 				<Menu onChange={handleSelection} types={typeNames} visible={true} />
 			) : (

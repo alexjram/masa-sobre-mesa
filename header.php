@@ -27,4 +27,4 @@
 
     <!--->
 
-    <main class="flex-grow h-full" id="main-container">
+    <main class="flex-grow h-screen" id="main-container">
