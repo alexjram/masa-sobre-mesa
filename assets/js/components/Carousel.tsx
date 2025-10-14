@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { Food as FoodType } from '../App'
 import Food from './Food'
@@ -10,6 +10,7 @@ interface Props {
 }
 
 export default function Carousel({ foods }: Props) {
+	const [activeFoodIndex, setActiveFoodIndex] = useState(-1)
 	const [emblaRef, emblaApi] = useEmblaCarousel({
 		align: 'start',
 		loop: true,
@@ -34,7 +35,7 @@ export default function Carousel({ foods }: Props) {
 
 			<div className='overflow-hidden h-full' ref={emblaRef}>
 				<div className='flex h-full'>
-					{foods.map((f) => (<Food food={f} key={f.id} />))}
+					{foods.map((f) => (<Food food={f} key={f.id} active={f.id === activeFoodIndex} onClick={() => setActiveFoodIndex(f.id)} />))}
 				</div>
 			</div>
 		</div>

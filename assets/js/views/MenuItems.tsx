@@ -18,6 +18,7 @@ export default function MenuItems({ name, foods, onChange, types, onScroll }: Pr
 	const [showMenu, setShowMenu] = useState(false)
 	const contentRef = useRef<HTMLDivElement>(null)
 	const isMobile = useIsMobile(1024)
+	const [activeFoodIndex, setActiveFoodIndex] = useState(-1)
 	useEffect(() => {
 		const scrollHandler = () => {
 			onScroll(!!contentRef && !!contentRef.current && contentRef.current.scrollTop > 0)
@@ -61,7 +62,7 @@ export default function MenuItems({ name, foods, onChange, types, onScroll }: Pr
 					<Scrollable showMenu={showMenu} ref={contentRef}>
 						<ul className="flex flex-col lg:flex-row lg:h-full whitespace-nowrap">
 							{foods.map((food) => (
-								<Food food={food} key={food.id} />
+								<Food food={food} key={food.id} active={food.id === activeFoodIndex} onClick={() => setActiveFoodIndex(food.id)} />
 							))}
 						</ul>
 						<div className={`absolute w-full h-full bottom-0 top-0 ${showMenu ? 'z-auto' : '-z-10'}`}>
