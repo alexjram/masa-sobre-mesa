@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import type { Food as FoodType } from '../App'
-import Food from './Food'
+import FoodDesktop from './FoodDesktop'
 import LeftArrow from './LeftArrow'
 import RightArrow from './RightArrow'
+import useIsMobile from '../hooks/useIsMobile'
 
 interface Props {
 	foods: FoodType[]
@@ -16,7 +17,6 @@ export default function Carousel({ foods }: Props) {
 		loop: true,
 
 	})
-
 	const handleLeftButton = () => {
 		emblaApi?.scrollPrev()
 	}
@@ -35,7 +35,7 @@ export default function Carousel({ foods }: Props) {
 
 			<div className='overflow-hidden h-full' ref={emblaRef}>
 				<div className='flex h-full'>
-					{foods.map((f) => (<Food food={f} key={f.id} active={f.id === activeFoodIndex} onClick={() => setActiveFoodIndex(f.id)} />))}
+					{foods.map((f) => (<FoodDesktop food={f} key={f.id} />))}
 				</div>
 			</div>
 		</div>
