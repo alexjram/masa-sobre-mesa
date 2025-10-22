@@ -52,7 +52,7 @@ function addTypes() {
 
     ?>
     <script>
-        var globalTerms = JSON.parse('<?= json_encode($termsArray) ?>')
+        var globalTerms = JSON.parse('<?= str_replace(['\\', "'"], ['\\\\', "\'"], json_encode($termsArray, JSON_HEX_APOS | JSON_UNESCAPED_SLASHES)) ?>')
     </script>
     <?php
 }
